@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - E-Commerce</title>
+    <title>Register</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -42,6 +42,18 @@
             <div class="card p-4">
                 <div class="card-body">
                     <h3 class="card-title text-center mb-4">Create an Account</h3>
+
+                    <!-- GLOBAL VALIDATION ERROR ALERT -->
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <strong>Please fix the following issues:</strong>
+                            <ul class="mt-2 mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
                     @if(session('error'))
                         <div class="alert alert-danger">{{ session('error') }}</div>

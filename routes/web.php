@@ -1,22 +1,20 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
-    return view('index');
-});
+    return view('homepage');
+})->name('homepage');
 
-// Show Login Page
-Route::get('/login', function () {
-    return view('login'); // your login.blade.php path
-})->name('login');
+Route::get('app', function () {
+    return view('layouts.app');
+})->name('app');
 
-// Show Register Page
-Route::get('/register', function () {
-    return view('register'); // change if needed
-})->name('register');
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
 
-// Forgot Password Page (optional for now)
-Route::get('/forgot-password', function () {
-    return 'Forgot Password Page coming soon';
-})->name('password.request');
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
 
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
