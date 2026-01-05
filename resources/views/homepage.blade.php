@@ -18,7 +18,7 @@
 <body class="bg-light text-dark">
 
   {{-- NAVBAR --}}
-  <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+   <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary sticky-top shadow-sm">
     <div class="container-fluid">
 
       <a class="navbar-brand d-flex align-items-center" href="/">
@@ -32,11 +32,18 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <form class="d-flex mx-auto" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search"
-            style="width: 250px;">
-          <button class="btn btn-outline-info" type="submit">Search</button>
-        </form>
+{{-- SEARCH BUTTON --}}
+    <form class="d-flex mx-auto" role="search">
+  <div class="input-group" style="width: 250px;">
+    <span class="input-group-text bg-white border-end-0">
+      <i class="bi bi-search"></i>
+    </span>
+    <input id="searchInput" type="search" class="form-control border-start-0" placeholder="Search products..." aria-label="Search">
+  </div>
+</form>
+
+
+
 
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
 
@@ -119,78 +126,80 @@
   </div>
 
   {{-- FEATURED PRODUCTS --}}
-  <div class="container my-5">
+ <div class="container my-5">
 
-    <h3 class="fw-bold mb-1">Featured Products</h3>
-    <p class="text-muted mb-4">Handpicked items just for you</p>
+ <div class="d-flex justify-content-between align-items-center mb-2">
+    <h3 class="fw-bold mb-0">Featured Products</h3>
+    <a href="{{ route('allproducts') }}" class="fw-bold text-primary text-decoration-none">View All →</a>
+</div>
+<p class="text-muted mb-4">Handpicked items just for you</p>
+
 
     <div class="row g-4">
 
-      {{-- Product 1 --}}
-      <div class="col-md-3">
-        <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
-          <div class="position-relative">
-            <img src="{{ asset('img/products/headphone.jpg') }}" class="card-img-top">
-            <span class="badge bg-primary position-absolute top-0 end-0 m-3 rounded-3 px-3 py-2">Electronics</span>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title fw-bold">Wireless Headphones</h5>
-            <p class="card-text text-muted">Premium noise-cancelling wireless headphones...</p>
-            <div class="mb-2"><span class="text-warning">★</span> <b>4.5</b> <span class="text-muted">(128)</span></div>
-          </div>
-        </div>
-      </div>
-
-      {{-- Product 2 --}}
-      <div class="col-md-3">
-        <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
-          <div class="position-relative">
-            <img src="{{ asset('img/products/watch.jpg') }}" class="card-img-top">
-            <span class="badge bg-primary position-absolute top-0 end-0 m-3 rounded-3 px-3 py-2">Electronics</span>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title fw-bold">Smart Watch</h5>
-            <p class="card-text text-muted">Advanced fitness tracking smartwatch...</p>
-            <div class="mb-2"><span class="text-warning">★</span> <b>4.8</b> <span class="text-muted">(256)</span></div>
-          </div>
-        </div>
-      </div>
-
-      {{-- Product 3 --}}
-      <div class="col-md-3">
-        <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
-          <div class="position-relative">
-            <img src="{{ asset('img/products/backpack.jpg') }}" class="card-img-top">
-            <span class="badge bg-info position-absolute top-0 end-0 m-3 rounded-3 px-3 py-2">Fashion</span>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title fw-bold"> Backpack</h5>
-            <p class="card-text text-muted">Stylish and durable backpack...</p>
-            <div class="mb-2"><span class="text-warning">★</span> <b>4.3</b> <span class="text-muted">(89)</span></div>
-          </div>
-        </div>
-      </div>
-
-      {{-- Product 4 --}}
-      <div class="col-md-3">
-        <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
-          <div class="position-relative">
-            <img src="{{ asset('img/products/shoes.jpg') }}" class="card-img-top">
-            <span class="badge bg-success position-absolute top-0 end-0 m-3 rounded-3 px-3 py-2">Sports</span>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title fw-bold">Running Shoes</h5>
-            <p class="card-text text-muted">Lightweight running shoes...</p>
-            <div class="mb-2"><span class="text-warning">★</span> <b>4.6</b> <span class="text-muted">(342)</span></div>
-          </div>
-        </div>
-      </div>
-
+    {{-- Product 1 --}}
+<div class="col-md-3 product-card" data-name="Wireless Headphones">
+  <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
+    <div class="position-relative">
+      <img src="{{ asset('img/products/headphone.jpg') }}" class="card-img-top">
+      <span class="badge bg-primary position-absolute top-0 end-0 m-3 rounded-3 px-3 py-2">Electronics</span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title fw-bold">Wireless Headphones</h5>
+      <p class="card-text text-muted">Premium noise-cancelling wireless headphones...</p>
+      <div class="mb-2"><span class="text-warning">★</span> <b>4.5</b> <span class="text-muted">(128)</span></div>
     </div>
   </div>
+</div>
+
+{{-- Product 2 --}}
+<div class="col-md-3 product-card" data-name="Smart Watch">
+  <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
+    <div class="position-relative">
+      <img src="{{ asset('img/products/watch.jpg') }}" class="card-img-top">
+      <span class="badge bg-primary position-absolute top-0 end-0 m-3 rounded-3 px-3 py-2">Electronics</span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title fw-bold">Smart Watch</h5>
+      <p class="card-text text-muted">Advanced fitness tracking smartwatch...</p>
+      <div class="mb-2"><span class="text-warning">★</span> <b>4.8</b> <span class="text-muted">(256)</span></div>
+    </div>
+  </div>
+</div>
+
+{{-- Product 3 --}}
+<div class="col-md-3 product-card" data-name="Backpack">
+  <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
+    <div class="position-relative">
+      <img src="{{ asset('img/products/backpack.jpg') }}" class="card-img-top">
+      <span class="badge bg-info position-absolute top-0 end-0 m-3 rounded-3 px-3 py-2">Fashion</span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title fw-bold">Backpack</h5>
+      <p class="card-text text-muted">Stylish and durable backpack...</p>
+      <div class="mb-2"><span class="text-warning">★</span> <b>4.3</b> <span class="text-muted">(89)</span></div>
+    </div>
+  </div>
+</div>
+
+{{-- Product 4 --}}
+<div class="col-md-3 product-card" data-name="Running Shoes">
+  <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
+    <div class="position-relative">
+      <img src="{{ asset('img/products/shoes.jpg') }}" class="card-img-top">
+      <span class="badge bg-success position-absolute top-0 end-0 m-3 rounded-3 px-3 py-2">Sports</span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title fw-bold">Running Shoes</h5>
+      <p class="card-text text-muted">Lightweight running shoes...</p>
+      <div class="mb-2"><span class="text-warning">★</span> <b>4.6</b> <span class="text-muted">(342)</span></div>
+    </div>
+  </div>
+</div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script src="{{ asset('js/style.js') }}"></script>
+
 
 </body>
 

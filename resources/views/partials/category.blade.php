@@ -3,14 +3,15 @@
 
     <div class="row g-4 justify-content-center">
 
-        @php
-            $categories = [
-                ['name' => 'Electronics', 'img' => 'https://images.pexels.com/photos/871053/pexels-photo-871053.jpeg'],
-                ['name' => 'Fashion', 'img' => 'https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg'],
-                ['name' => 'Sports', 'img' => 'https://images.pexels.com/photos/260447/pexels-photo-260447.jpeg'],
-                ['name' => 'Home', 'img' => 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg'],
-            ];
-        @endphp
+   @php
+    $categories = [
+        ['name' => 'Electronics', 'img' => asset('img/categories/electronics.jpg')],
+        ['name' => 'Fashion', 'img' => asset('img/categories/fashion.jpg')],
+        ['name' => 'Sports', 'img' => asset('img/categories/sports.jpg')],
+        ['name' => 'Home', 'img' => asset('img/categories/home.jpg')],
+    ];
+@endphp
+
 
         @foreach($categories as $category)
         <div class="col-md-3 col-sm-6">

@@ -1,13 +1,17 @@
 @section('content')
 <div class="container my-5">
 
-    <h3 class="fw-bold mb-1">Featured Products</h3>
-    <p class="text-muted mb-4">Handpicked items just for you</p>
+<div class="d-flex justify-content-between align-items-center mb-2">
+    <h3 class="fw-bold mb-0">Featured Products</h3>
+    <a href="{{ route('allproducts') }}"><button class="filter-btn active" data-category="all">View All</button></a>
+</div>
+<p class="text-white mb-4">Handpicked items just for you</p>
+
 
     <div class="row g-4">
 
         {{-- Product Card 1 --}}
-        <div class="col-md-3">
+      <div class="col-md-3 product-card" data-name="Wireless Headphones">
             <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
                 <div class="position-relative">
                     <img src="{{ asset('img/products/headphone.jpg') }}" class="card-img-top" alt="Wireless Headphones">
@@ -26,13 +30,13 @@
                         <span class="text-muted">(128)</span>
                     </div>
                     <div class="fw-bold fs-5 mb-3">$299.99</div>
-                    <a href="#" class="btn btn-light w-100 border rounded-3 add-to-cart-btn">🛒 Add to Cart</a>
+                      <button href="#"class="btn btn-light w-100 mt-3 btn-cart"><i class="bi bi-cart"></i> Add to Cart</button>
                 </div>
             </div>
         </div>
 
         {{-- Product Card 2 --}}
-        <div class="col-md-3">
+        <div class="col-md-3 product-card" data-name="Smart Watch">
             <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
                 <div class="position-relative">
                     <img src="{{ asset('img/products/watch.jpg') }}" class="card-img-top" alt="Smart Watch">
@@ -51,13 +55,13 @@
                         <span class="text-muted">(256)</span>
                     </div>
                     <div class="fw-bold fs-5 mb-3">$399.99</div>
-                    <a href="#" class="btn btn-light w-100 border rounded-3 add-to-cart-btn">🛒 Add to Cart</a>
+                    <button href="#"class="btn btn-light w-100 mt-3 btn-cart"><i class="bi bi-cart"></i> Add to Cart</button>
                 </div>
             </div>
         </div>
 
         {{-- Product Card 3 --}}
-        <div class="col-md-3">
+        <div class="col-md-3 product-card" data-name="Designer Backpack">
             <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
                 <div class="position-relative">
                     <img src="{{ asset('img/products/backpack.jpg') }}" class="card-img-top" alt="Designer Backpack">
@@ -76,13 +80,13 @@
                         <span class="text-muted">(89)</span>
                     </div>
                     <div class="fw-bold fs-5 mb-3">$89.99</div>
-                    <a href="#" class="btn btn-light w-100 border rounded-3 add-to-cart-btn">🛒 Add to Cart</a>
+                    <button href="#"class="btn btn-light w-100 mt-3 btn-cart"><i class="bi bi-cart"></i> Add to Cart</button>
                 </div>
             </div>
         </div>
 
         {{-- Product Card 4 --}}
-        <div class="col-md-3">
+        <div class="col-md-3 product-card" data-name="Running Shoes">
             <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
                 <div class="position-relative">
                     <img src="{{ asset('img/products/shoes.jpg') }}" class="card-img-top" alt="Running Shoes">
@@ -101,15 +105,34 @@
                         <span class="text-muted">(342)</span>
                     </div>
                     <div class="fw-bold fs-5 mb-3">$129.99</div>
-                    <a href="#" class="btn btn-light w-100 border rounded-3 add-to-cart-btn">🛒 Add to Cart</a>
+                <button href="#"class="btn btn-light w-100 mt-3 btn-cart"><i class="bi bi-cart"></i> Add to Cart</button>
                 </div>
             </div>
         </div>
 
     </div>
+    <p id="noProductsMsg" class="text-center mt-4" style="display: none;">
+        No products found.
+    </p>
 </div>
 @endsection
 
-
+<style>
+    .filter-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: .25s;
+}
+.filter-btn:hover { background: rgba(255,255,255,.15); }
+.filter-btn.active {
+    background: #fff;
+    color: #000;
+    font-weight: 600;
+}
+</style>
 
 

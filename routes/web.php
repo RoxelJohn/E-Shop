@@ -11,6 +11,10 @@ Route::get('app', function () {
     return view('layouts.app');
 })->name('app');
 
+Route::get('/allproducts', function () {
+    return view('partials.allproducts');
+})->name('allproducts');
+
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
